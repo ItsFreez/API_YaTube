@@ -1,12 +1,11 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import filters, viewsets, permissions
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.exceptions import ParseError
 
 from api.permissions import IsOwnerOrReadOnly
 from api.serializers import (CommentSerializer, FollowSerializer,
                              GroupSerializer, PostSerializer)
-from posts.models import Comment, Follow, Group, Post
+from posts.models import Follow, Group, Post
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -18,7 +17,7 @@ class CommentViewSet(viewsets.ModelViewSet):
         return get_object_or_404(Post, id=self.kwargs['post_id'])
 
     def get_queryset(self):
-        return Comment.objects.filter(post=self.get_post_object())
+        return self.get_post_object().comments.all()
 
     def perform_create(self, serializer):
         serializer.save(
@@ -37,11 +36,6 @@ class FollowViewSet(viewsets.ModelViewSet):
         return Follow.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        following = serializer.validated_data['following']
-        if self.request.user == following:
-            raise ParseError('Нельзя подписаться на самого себя!')
-        if Follow.objects.filter(user=self.request.user, following=following):
-            raise ParseError('Подписка уже оформлена!')
         serializer.save(user=self.request.user)
 
 
