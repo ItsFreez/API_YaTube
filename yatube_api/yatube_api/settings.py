@@ -1,6 +1,6 @@
+from datetime import timedelta
 from pathlib import Path
 
-from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,8 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    'api',
     'posts',
+    'api',
 ]
 
 MIDDLEWARE = [
