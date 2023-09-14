@@ -58,3 +58,13 @@ class Follow(models.Model):
 
     class Meta:
         ordering = ('following',)
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'],
+                name='unique_user_following'
+            ),
+            models.CheckConstraint(
+                name='user_following_different',
+                check=~models.Q(user=models.F('following')),
+            ),
+        ]
