@@ -48,12 +48,12 @@ cd kittygram
 
 Cоздать и активировать виртуальное окружение:
 
-Для Windows
+*Для Windows*
 ```
 python -m venv env
 source venv/Scripts/Activate
 ```
-Для MacOS/Linux
+*Для MacOS/Linux*
 ```
 python3 -m venv env
 source env/bin/activate
