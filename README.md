@@ -1,5 +1,15 @@
 # Проект API_FINAL_YATUBE
 
+## Версии языка и используемых библиотек
+
+- Python - 3.9.10
+
+- Django - 3.2.16
+
+- DjangoRestFramework - 3.12.4 
+
+- DjangoRestFramework-SimpleJWT - 4.7.2 
+
 ## Описание проекта
 
 Проект API_FINAL_YATUBE представляет собой готовый бэкенд для создания сервиса публикации постов.
@@ -38,12 +48,15 @@ cd kittygram
 
 Cоздать и активировать виртуальное окружение:
 
+Для Windows
 ```
 python -m venv env
-```
-
-```
 source venv/Scripts/Activate
+```
+Для MacOS/Linux
+```
+python3 -m venv env
+source env/bin/activate
 ```
 
 Установить зависимости из файла requirements.txt:
@@ -67,3 +80,5 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+### ***Автор проекта - [ItsFreez](https://github.com/ItsFreez)***
