@@ -23,7 +23,7 @@
 ***1. Клонировать репозиторий и перейти в папку c проектом***
 
 ```shell
-git clonegit@github.com:ItsFreez/API_YaTube.git
+git clone git@github.com:ItsFreez/API_YaTube.git
 ```
 
 ```shell
